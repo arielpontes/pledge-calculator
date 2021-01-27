@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!--Import calculator.css-->
+    <link type="text/css" rel="stylesheet" href="calculator.css" media="screen,projection" />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper teal lighten-2">
+            <a href="#" class="brand-logo">Pledge Calculator</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="card horizontcol s12 m7">
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <div class="row">
+                            <div class="col s12">
+                                <div class="country input-field inline">
+                                    <select id="country-select">
+                                        <option value="" disabled selected>Choose your country</option>
+                                    </select>
+                                </div>
+                                <div class="income input-field inline">
+                                    <input id="income" type="text">
+                                    <label for="income">Annual income in local currency</label>
+                                </div>
+                                <div class="calculate inline">
+                                    <a id="calculate" class="waves-effect waves-light btn">calculate</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <p id="recommendation"></p>
+                        </div>
+                    </div>
+                    <div class="card-content border-top">
+                        <p>
+                            This pledge calculator works in exactly the same way
+                            as the one on <a href="https://www.thelifeyoucansave.org/take-the-pledge/">
+                                thelifeyoucansave.org
+                            </a>. The only difference is that it converts the
+                            income provided into <a href="https://en.wikipedia.org/wiki/International_dollar">
+                                international dollars
+                            </a> before calculating the pledge in order to
+                            correct for the distortion caused by the fact that
+                            different countries have very different costs of
+                            living. If you make 80,000.00 RON per year in Romania,
+                            for example, that's only 19,790.74 USD, meaning your
+                            recommended donation is 0%. However, the standard of
+                            living of a person who makes 80,000.00 RON per year
+                            in Romania is much more similar to a person who makes
+                            42,144.97 USD per year in the United States, meaning
+                            they could easily afford donating 1% of their income.
+                        </p><br>
+                        <p>
+                            The calculator uses data from the <a
+                                href="https://data.worldbank.org/indicator/PA.NUS.PRVT.PP">
+                                World Bank</a>. For each country, I use the most
+                            recent value available between 2017 and 2019.
+                            Countries with no data for this period are not
+                            included in the list. Currency codes are taken from
+                            <a href="https://datahub.io/core/country-codes">
+                                here</a>.
+                        </p><br>
+                        <p>
+                            The original calculator is based on the "Giving Scale"
+                            provided by Peter Singer in the book The Life You
+                            Can Save, which recommends different donations
+                            depending on your income bracket. The Giving Scale
+                            looks as follows:
+                        </p><br>
+                        <table class="striped">
+                            <thead>
+                                <tr>
+                                    <th style="width:33%">Income bracket</th>
+                                    <th>Donation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>$40,000 – $81,000</td>
+                                    <td>1%</td>
+                                </tr>
+                                <tr>
+                                    <td>$81,001 – $140,000</td>
+                                    <td>1% of the first $81,000 and 5% of the remainder</td>
+                                </tr>
+                                <tr>
+                                    <td>$140,001 – $320,000</td>
+                                    <td>1% of the first $81,000, 5% of the next $59,000, and 10% of the remainder</td>
+                                </tr>
+                                <tr>
+                                    <td>$320,001 – $480,000</td>
+                                    <td>1% of the first $81,000, 5% of the next $59,000, 10% of the next $180,000, 15%
+                                        of the remainder</td>
+                                </tr>
+                                <tr>
+                                    <td>$480,001 – $2,000,000</td>
+                                    <td>1% of the first $81,000, 5% of the next $59,000, 10% of the next $180,000, 15%
+                                        of the next $160,000, 20%
+                                        of the remainder</td>
+                                </tr>
+                                <tr>
+                                    <td>$2,000,001 – $11,000,000</td>
+                                    <td>1% of the first $81,000, 5% of the next $59,000, 10% of the next $180,000, 15%
+                                        of the next $160,000, 20%
+                                        of the next $1,520,000, 25% of the remainder</td>
+                                </tr>
+                                <tr>
+                                    <td>$11,000,001 – $53,000,000</td>
+                                    <td>1% of the first $81,000, 5% of the next $59,000, 10% of the next $180,000, 15%
+                                        of the next $160,000, 20%
+                                        of the next $1,520,000, 25% of the next $9,000,000, and 33.3% of the remainder
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Over $53,000,000</td>
+                                    <td>1% of the first $81,000, 5% of the next $59,000, 10% of the next $180,000, 15%
+                                        of the next $160,000, 20%
+                                        of the next $1,520,000, 25% of the next $9,000,000, 33.3% of the next
+                                        $42,000,000, and 50% of the
+                                        remainder</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript" src="load_countries.js"></script>
+    <script type="text/javascript" src="calculator.js"></script>
+</body>
+
+</html>

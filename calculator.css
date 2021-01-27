@@ -1,0 +1,34 @@
+body {
+    font-family: Geneva, Helvetica, sans-serif;
+}
+
+.nav-wrapper {
+    padding-left: 10px;
+}
+
+div.container {
+    padding-top: 20px;
+}
+
+.btn {
+    top: -4px;
+    margin-left: 20px;
+}
+
+.border-top {
+    border-top: 1px solid rgba(160,160,160,0.2) !important;
+}
+
+.donation {
+    font-size: 120%;
+    font-weight: bold;
+    color: #ff8f00;
+}
+
+div.country, div.income {
+    min-width: 240px;
+}
+
+div.calculate {
+    display: inline-block;
+}
